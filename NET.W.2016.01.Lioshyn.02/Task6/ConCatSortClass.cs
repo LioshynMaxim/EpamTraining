@@ -47,7 +47,7 @@ namespace Task6
         /// Sort line small laters order by ABC and show it.
         /// </summary>
 
-        public void GeneralFunction()
+        public void Longest()
         {
             _finishStr = ConCatDeleteDuplicate();
             _finishStr = string.Concat(_finishStr.OrderBy(x => x).ToArray());

@@ -25,7 +25,7 @@ namespace Task6.UI
             //str2 = str1;
 
             ConCatSortClass conCatSortClass = new ConCatSortClass(str1, str2);
-            conCatSortClass.GeneralFunction();
+            conCatSortClass.Longest();
 
             Console.ReadKey();
         }
