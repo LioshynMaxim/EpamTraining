@@ -1,15 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Task5
 {
     public class Arrays
     {
         private static int[] _arr;
+
+        /// <summary>
+        /// The class constructor
+        /// </summary>
+        /// <param name="n"> Number of elements in the array</param>
 
         public Arrays(int n)
         {
@@ -21,6 +21,10 @@ namespace Task5
             _arr = new int[n];
         }
 
+        /// <summary>
+        /// Generate array from sequence of numbers 1 to n
+        /// </summary>
+
         public void GenerateSerialArray()
         {
             for (int i = 0; i < _arr.Length; i++)
@@ -28,6 +32,10 @@ namespace Task5
                 _arr[i] = i;
             }
         }
+
+        /// <summary>
+        /// Test array from example
+        /// </summary>
 
         public void TestArray()
         {
@@ -44,6 +52,11 @@ namespace Task5
 
             Console.WriteLine();
         }
+
+        /// <summary>
+        /// The function of finding that the sum of the left and right side.
+        /// </summary>
+        /// <returns>Index at which are the left and right part.If such an index is not present, it displays -1</returns>
 
         public int EqualityLeftAndRight()
         {
@@ -65,7 +78,7 @@ namespace Task5
 
                 if ((index == _arr.Length))
                 {
-                    index = -1;
+                    return -1;
                 }
 
                 if (leftSum == rightSum || index < 0)
