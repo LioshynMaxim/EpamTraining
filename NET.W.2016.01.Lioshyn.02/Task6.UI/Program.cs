@@ -14,7 +14,7 @@ namespace Task6.UI
 
 
             string str1 = "", str2 = "";
-
+            Console.WriteLine("Write 2 line");
             str1 = Console.ReadLine();
             str2 = Console.ReadLine();
 
