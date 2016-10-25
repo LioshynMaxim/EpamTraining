@@ -5,64 +5,38 @@ namespace Task5
     public class Arrays
     {
         #region fields
-        private static int[] _arr;
+        private int[] arr;
 
 
         #endregion
 
         #region .ctor
 
-        
         /// <summary>
         /// The class constructor
         /// </summary>
-        /// <param name="n"> Number of elements in the array</param>
-
+        /// <param name="n">number elements in array</param>
         public Arrays(int n)
         {
-            if (n < 0)
-            {
-                n = 0;
-            }
-
-            _arr = new int[n];
+            this.arr = new int[n];
         }
 
-        #endregion
+        /// <summary>
+        /// The class constructor
+        /// </summary>
+        /// <param name="arr">Arrays for solution</param>
+        public Arrays(int[] arr)
+        {
+            this.arr = arr;
+        }
 
-        #region GenerateSerialArray
-
-
-
+        /// <summary>
+        /// The class constructor
+        /// </summary>
         
-        /// <summary>
-        /// Generate array from sequence of numbers 1 to n
-        /// </summary>
-
-        public void GenerateSerialArray()
+        private Arrays()
         {
-            for (int i = 0; i < _arr.Length; i++)
-            {
-                _arr[i] = i;
-            }
-        }
-
-        #endregion
-
-        #region PrintArray
-
-        /// <summary>
-        /// Print array 
-        /// </summary>
-
-        public void PrintArray()
-        {
-            foreach (int arr in _arr)
-            {
-                Console.Write(arr + " ");
-            }
-
-            Console.WriteLine();
+            throw new NotImplementedException();
         }
 
         #endregion
@@ -84,15 +58,15 @@ namespace Task5
                 var rightSum = 0;
                 for (int i = 0; i < index; i++)
                 {
-                    leftSum += _arr[i];
+                    leftSum += arr[i];
                 }
 
-                for (int i = ++ index; i < _arr.Length; i++)
+                for (int i = ++ index; i < arr.Length; i++)
                 {
-                    rightSum += _arr[i];
+                    rightSum += arr[i];
                 }
 
-                if ((index == _arr.Length))
+                if ((index == arr.Length))
                 {
                     return -1;
                 }
@@ -102,7 +76,6 @@ namespace Task5
                     flag = false;
                 }
             }
-
             
             return --index;
         }
