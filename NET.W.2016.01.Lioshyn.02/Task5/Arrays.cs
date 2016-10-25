@@ -4,8 +4,15 @@ namespace Task5
 {
     public class Arrays
     {
+        #region fields
         private static int[] _arr;
 
+
+        #endregion
+
+        #region .ctor
+
+        
         /// <summary>
         /// The class constructor
         /// </summary>
@@ -21,6 +28,13 @@ namespace Task5
             _arr = new int[n];
         }
 
+        #endregion
+
+        #region GenerateSerialArray
+
+
+
+        
         /// <summary>
         /// Generate array from sequence of numbers 1 to n
         /// </summary>
@@ -33,15 +47,13 @@ namespace Task5
             }
         }
 
-        /// <summary>
-        /// Test array from example
-        /// </summary>
+        #endregion
 
-        public void TestArray()
-        {
-            //_arr = new[] {1, 2, 3, 4, 3, 2, 1};
-            _arr = new[] { 1, 100, 50, -51, 1, 1 };
-        }
+        #region PrintArray
+
+        /// <summary>
+        /// Print array 
+        /// </summary>
 
         public void PrintArray()
         {
@@ -52,6 +64,10 @@ namespace Task5
 
             Console.WriteLine();
         }
+
+        #endregion
+
+        #region EqualityLeftAndRight
 
         /// <summary>
         /// The function of finding that the sum of the left and right side.
@@ -90,5 +106,6 @@ namespace Task5
             
             return --index;
         }
+        #endregion
     }
 }
