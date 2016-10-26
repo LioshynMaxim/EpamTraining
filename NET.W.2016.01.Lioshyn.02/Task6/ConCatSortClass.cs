@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.IO.Pipes;
+using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Task6
 {
@@ -21,6 +17,10 @@ namespace Task6
 
         public ConCatSortClass(string str1, string str2)
         {
+            if (String.IsNullOrEmpty(str1) || String.IsNullOrEmpty(str2))
+            {
+                throw new ArgumentException();
+            }
             _startStr = str1 + str2;
             _finishStr = "";
         }
@@ -46,12 +46,13 @@ namespace Task6
         /// <summary>
         /// Sort line small laters order by ABC and show it.
         /// </summary>
+        /// <returns> Finish string</returns>
 
-        public void Longest()
+        public string Longest()
         {
             _finishStr = ConCatDeleteDuplicate();
             _finishStr = string.Concat(_finishStr.OrderBy(x => x).ToArray());
-            Console.WriteLine(_finishStr);
+            return _finishStr;
         }
     }
 }
