@@ -16,6 +16,8 @@ namespace Task7
 
         public InsertBinary(int first, int second, int i, int j)
         {
+
+
             firstNumberBitArray = ToBinary(first);
             secondNumberBitArray = ToBinary(second);
             this.i = i;
