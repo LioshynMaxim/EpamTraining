@@ -5,7 +5,7 @@ namespace Task5
     public class Arrays
     {
         #region fields
-        private int[] arr;
+        private readonly int[] arr;
 
 
         #endregion

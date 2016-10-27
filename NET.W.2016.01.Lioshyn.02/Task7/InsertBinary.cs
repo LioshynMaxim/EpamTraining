@@ -9,45 +9,62 @@ namespace Task7
 {
     public class InsertBinary
     {
+
+        #region fields
+
         private BitArray firstNumberBitArray;
         private BitArray secondNumberBitArray;
         private int i;
         private int j;
 
-        public InsertBinary(int first, int second, int i, int j)
+        #endregion
+
+        #region .ctor
+
+        /// <summary>
+        /// Ctors Insert Binary
+        /// </summary>
+        /// <param name="first">First integer number</param>
+        /// <param name="second">Second integer number</param>
+        /// <param name="i">Index i-th position</param>
+        /// <param name="j">Index j-th position</param>
+
+        public InsertBinary(int? first, int? second, int? i, int? j)
         {
-
-
-            firstNumberBitArray = ToBinary(first);
-            secondNumberBitArray = ToBinary(second);
-            this.i = i;
-            this.j = j;
+            if ((first == null) || (second == null) || (i == null) || (j == null) )
+            {
+                
+            }
+            firstNumberBitArray = ToBinary((int) first);
+            secondNumberBitArray = ToBinary((int) second);
+            this.i = (int) i;
+            this.j = (int) j;
         }
 
-        public void Insertion()
-        {
-            PrintBitArray(firstNumberBitArray);
-            Console.WriteLine();
-            PrintBitArray(secondNumberBitArray);
-            Console.WriteLine();
+        #endregion
 
+        #region Insertion
+
+        /// <summary>
+        /// Function returned integer decimal answer
+        /// </summary>
+        /// <returns>Decimal answer</returns>
+
+        public long Insertion()
+        {
             for (int index1 = this.i, index2 = 0; index1 <= this.j; index1++, index2++)
             {
                 firstNumberBitArray[index1] = secondNumberBitArray[index2];
             }
 
-            
-            PrintBitArray(firstNumberBitArray);
-            Console.WriteLine();
-            PrintBitArray(secondNumberBitArray);
-            Console.WriteLine();
-
-            Console.WriteLine(ToNumeral(firstNumberBitArray));
-
-
+            return ToNumeral(firstNumberBitArray);
         }
 
-        public void PrintBitArray(BitArray bitArray)
+        #endregion
+
+        #region Console function
+
+        private void PrintBitArray(BitArray bitArray)
         {
             StringBuilder sb = new StringBuilder();
             foreach (var b in bitArray)
@@ -57,10 +74,30 @@ namespace Task7
             Console.Write(sb.ToString());
         }
 
+        #endregion
+
+        #region ToBinary
+
+        /// <summary>
+        /// Translations into bits from integer
+        /// </summary>
+        /// <param name="numeral">Integer numtral</param>
+        /// <returns>Bit array</returns>
+
         private BitArray ToBinary(int numeral)
         {
             return new BitArray(new[] { numeral });
         }
+
+        #endregion
+
+        #region ToNumeral
+
+        /// <summary>
+        /// Translations into integer from bits
+        /// </summary>
+        /// <param name="binary">Binary array</param>
+        /// <returns>Numeral</returns>
 
         private long ToNumeral(BitArray binary)
         {
@@ -73,5 +110,9 @@ namespace Task7
             binary.CopyTo(result, 0);
             return result[0];
         }
+
+        #endregion
+
+        
     }
 }

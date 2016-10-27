@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Task3
 {
@@ -12,7 +8,11 @@ namespace Task3
         #region fields
 
         private readonly double number;
-        private readonly int pow;
+        private readonly double pow;
+        private readonly int round;
+
+        private readonly double eps;
+
 
         #endregion
 
@@ -21,10 +21,17 @@ namespace Task3
         /// <summary>
         /// Ctors method for solve radical method
         /// </summary>
-        /// <param name="number"></param>
-        /// <param name="pow"></param>
-        public NutonRadical(double number, int pow)
+        /// <param name="number">The number from which the root is removed</param>
+        /// <param name="pow">Root level</param>
+        /// <param name="round">The number of decimal places</param>
+        public NutonRadical(double number, double pow, int? round)
         {
+            if (Double.IsNaN(number) || (Double.IsNaN(pow)) || (round != null))
+            {
+                throw new ArgumentException();
+            }
+            this.round = (int) round;
+            this.eps = Math.Pow(10, (int) -round);
             this.pow = pow;
             this.number = number;
         }
@@ -38,10 +45,10 @@ namespace Task3
         /// </summary>
         /// <param name="n">Power degree</param>
         /// <param name="A">The number from which the root is removed</param>
-        /// <param name="eps">Accuracy</param>
+        
         /// <returns>Radical of A</returns>
 
-        private double RadicalN(double n, double A, double eps)
+        private double RadicalN(double n, double A)
         {
             var x0 = A / n;
             var x1 = (1 / n) * ((n - 1) * x0 + A / Math.Pow(x0, n-1));
@@ -58,15 +65,16 @@ namespace Task3
 
         #endregion
 
-        #region Return
+        #region Radical
         /// <summary>
-        /// 
+        /// Return Radical Fuction
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Answer</returns>
 
         public double Radical()
         {
-            return RadicalN(pow, number, 0.001);
+
+            return Math.Round(RadicalN(pow, number),round);
         }
 
 
