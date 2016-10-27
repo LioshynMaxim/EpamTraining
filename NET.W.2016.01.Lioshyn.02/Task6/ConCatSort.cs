@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Task6
 {
-    public class ConCatSortClass
+    public class ConCatSort
     {
         private readonly string _startStr;
         private string _finishStr;
@@ -15,7 +15,7 @@ namespace Task6
         /// <param name="str1">First string.</param>
         /// <param name="str2">Second string.</param>
 
-        public ConCatSortClass(string str1, string str2)
+        public ConCatSort(string str1, string str2)
         {
             if (String.IsNullOrEmpty(str1) || String.IsNullOrEmpty(str2))
             {
